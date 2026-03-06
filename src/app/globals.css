@@ -1,26 +1,34 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-onyx: #050505;
+  --color-titanium: #ffffff;
+  --color-gold: #D4AF37;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-syncopate), sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-onyx);
+  color: var(--color-titanium);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for Brutalist Aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-onyx);
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+* {
+  box-sizing: border-box;
 }
