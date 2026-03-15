@@ -5,7 +5,7 @@ import StatCounter from "@/components/StatCounter";
 
 export default function About() {
     return (
-        <section id="about" className="relative z-10 w-full bg-onyx px-4 md:px-6 py-32 border-t border-white/5 overflow-hidden">
+        <section id="about" className="relative z-10 w-full bg-onyx px-4 md:px-6 py-16 md:py-32 border-t border-white/5 overflow-hidden">
             {/* Ambient background glows */}
             <div className="absolute top-20 left-0 w-[600px] h-[600px] bg-gold/[0.03] blur-[160px] rounded-full pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold/[0.025] blur-[140px] rounded-full pointer-events-none" />
@@ -53,7 +53,7 @@ export default function About() {
                             <div
                                 aria-hidden="true"
                                 className="absolute top-4 right-6 font-display leading-none text-gold/[0.04] select-none pointer-events-none group-hover:text-gold/[0.08] transition-all duration-700"
-                                style={{ fontSize: "clamp(140px, 18vw, 220px)" }}
+                                style={{ fontSize: "clamp(90px, 14vw, 220px)" }}
                             >
                                 "
                             </div>
@@ -98,7 +98,7 @@ export default function About() {
                         <img
                             src="/fondo1.png"
                             alt="CJ Trainer"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            className="w-full h-full object-cover object-top md:object-center group-hover:scale-105 transition-transform duration-700"
                         />
                         {/* Bottom gradient fade */}
                         <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-onyx/90 to-transparent z-20" />

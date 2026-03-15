@@ -108,11 +108,11 @@ const commitmentPlans = [
 
 export default function Pricing() {
     return (
-        <section id="pricing" className="relative z-10 w-full bg-onyx px-4 md:px-6 py-32 border-t border-white/5">
+        <section id="pricing" className="relative z-10 w-full bg-onyx px-4 md:px-6 py-16 md:py-32 border-t border-white/5">
             <div className="max-w-7xl mx-auto w-full flex flex-col items-center">
 
                 {/* Header */}
-                <div className="text-center mb-20 flex flex-col items-center">
+                <div className="text-center mb-10 md:mb-20 flex flex-col items-center">
                     <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-titanium uppercase mb-6 tracking-tighter">
                         Investment
                     </h2>
@@ -135,7 +135,7 @@ export default function Pricing() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                className={`relative rounded-2xl p-8 border flex flex-col gap-6 transition-all duration-500 group overflow-hidden ${
+                                className={`relative rounded-2xl p-6 md:p-8 border flex flex-col gap-6 transition-all duration-500 group overflow-hidden ${
                                     plan.highlight
                                         ? "bg-gold/10 border-gold/40 hover:border-gold/70"
                                         : "bg-white/5 border-white/10 hover:border-white/20"
@@ -160,7 +160,7 @@ export default function Pricing() {
 
                                 <div className="relative z-10">
                                     <div className="flex items-baseline gap-2">
-                                        <span className={`font-display text-5xl tracking-tighter ${plan.highlight ? "text-gold" : "text-titanium"}`}>
+                                        <span className={`font-display text-4xl md:text-5xl tracking-tighter ${plan.highlight ? "text-gold" : "text-titanium"}`}>
                                             {plan.price}
                                         </span>
                                         <span className="font-sans text-titanium/40 text-xs uppercase tracking-wider">{plan.period}</span>
@@ -240,7 +240,7 @@ export default function Pricing() {
                                     </div>
                                     <div className="sm:text-right shrink-0">
                                         <div className="flex items-baseline gap-2 sm:justify-end">
-                                            <span className={`font-display text-5xl tracking-tighter ${plan.highlight ? "text-gold" : "text-titanium"}`}>
+                                            <span className={`font-display text-4xl md:text-5xl tracking-tighter ${plan.highlight ? "text-gold" : "text-titanium"}`}>
                                                 {plan.price}
                                             </span>
                                             <span className="font-sans text-titanium/40 text-sm uppercase tracking-wider">{plan.period}</span>

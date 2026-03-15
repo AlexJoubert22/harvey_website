@@ -61,10 +61,10 @@ export default function Disciplines() {
     return (
         <section
             id="services"
-            className="relative z-10 w-full min-h-screen bg-onyx px-6 py-32 border-t border-white/5 flex flex-col justify-center"
+            className="relative z-10 w-full bg-onyx px-4 md:px-6 py-16 md:py-32 border-t border-white/5 flex flex-col justify-center"
         >
             <div className="max-w-7xl mx-auto w-full" ref={containerRef}>
-                <div className="mb-20 text-center flex flex-col items-center">
+                <div className="mb-10 md:mb-20 text-center flex flex-col items-center">
                     <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-titanium uppercase mb-6 tracking-tighter">
                         Services
                     </h2>
@@ -137,84 +137,85 @@ export default function Disciplines() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-start justify-center p-4 md:p-8 bg-onyx/90 backdrop-blur-xl overflow-y-auto"
+                        className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-8 bg-onyx/90 backdrop-blur-xl"
                         onClick={() => setSelectedDiscipline(null)}
                     >
                         <motion.div
-                            initial={{ scale: 0.95, y: 20, opacity: 0 }}
-                            animate={{ scale: 1, y: 0, opacity: 1 }}
-                            exit={{ scale: 0.95, y: 20, opacity: 0 }}
-                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="relative w-full max-w-4xl bg-[#030303] border border-white/10 rounded-2xl md:rounded-3xl p-6 md:p-14 overflow-hidden shadow-2xl my-auto shrink-0"
+                            initial={{ y: "100%", opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: "100%", opacity: 0 }}
+                            transition={{ type: "spring", damping: 30, stiffness: 300 }}
+                            className="relative w-full max-w-4xl bg-[#030303] border border-white/10 rounded-t-3xl md:rounded-3xl shadow-2xl flex flex-col max-h-[92vh] md:max-h-[90vh]"
                             onClick={(e) => e.stopPropagation()}
                             style={{
-                                boxShadow: `0 25px 50px -12px rgba(0,0,0,0.5), 0 0 60px -15px ${selectedDiscipline.color}20`
+                                boxShadow: `0 -10px 60px -10px rgba(0,0,0,0.6), 0 0 60px -15px ${selectedDiscipline.color}20`
                             }}
                         >
-                            {/* Modal Background Glow */}
-                            <div
-                                className="absolute top-0 right-0 w-96 h-96 blur-[120px] rounded-full opacity-10 pointer-events-none"
-                                style={{ backgroundColor: selectedDiscipline.color }}
-                            />
-
-                            {/* Close Button */}
-                            <button
-                                onClick={() => setSelectedDiscipline(null)}
-                                className="absolute top-4 right-4 md:top-8 md:right-8 text-titanium/50 hover:text-white transition-colors bg-white/5 hover:bg-white/10 p-3 rounded-full backdrop-blur-sm z-20"
-                            >
-                                <X size={24} strokeWidth={1.5} />
-                            </button>
-
-                            {/* Content */}
-                            <div className="relative z-10 w-full flex flex-col gap-10">
-                                {/* Header Section */}
-                                <div>
-                                    <div className="flex items-center gap-6 mb-8">
-                                        <div
-                                            className="w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 shrink-0"
-                                            style={{ color: selectedDiscipline.color }}
-                                        >
-                                            <selectedDiscipline.icon size={48} strokeWidth={0.5} style={{ filter: `drop-shadow(0px 0px 15px ${selectedDiscipline.color}60)` }} />
-                                        </div>
-                                        <div>
-                                            <span className="font-sans text-[10px] md:text-xs tracking-[0.4em] font-bold uppercase block mb-2" style={{ color: selectedDiscipline.color }}>
-                                                Specialized Protocol / 0{selectedDiscipline.id}
-                                            </span>
-                                            <h3 className="font-display text-4xl md:text-6xl text-titanium uppercase tracking-tighter leading-none">
-                                                {selectedDiscipline.name}
-                                            </h3>
-                                        </div>
+                            {/* Sticky top bar — always visible, has close button */}
+                            <div className="flex items-center justify-between px-6 md:px-10 pt-5 pb-4 border-b border-white/5 shrink-0">
+                                {/* Drag handle (mobile hint) */}
+                                <div className="flex items-center gap-3">
+                                    <div
+                                        className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 shrink-0"
+                                        style={{ color: selectedDiscipline.color }}
+                                    >
+                                        <selectedDiscipline.icon size={22} strokeWidth={1.2} style={{ filter: `drop-shadow(0px 0px 8px ${selectedDiscipline.color}60)` }} />
                                     </div>
-
-                                    <p className="font-sans text-titanium/80 text-lg md:text-xl leading-relaxed tracking-wide font-light max-w-2xl">
-                                        {selectedDiscipline.fullDesc}
-                                    </p>
+                                    <div>
+                                        <span className="font-sans text-[9px] tracking-[0.35em] font-bold uppercase block" style={{ color: selectedDiscipline.color }}>
+                                            Protocol / 0{selectedDiscipline.id}
+                                        </span>
+                                        <h3 className="font-display text-xl md:text-3xl text-titanium uppercase tracking-tighter leading-none">
+                                            {selectedDiscipline.name}
+                                        </h3>
+                                    </div>
                                 </div>
+                                <button
+                                    onClick={() => setSelectedDiscipline(null)}
+                                    className="text-titanium/50 hover:text-white transition-colors bg-white/5 hover:bg-white/10 p-3 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center ml-4 shrink-0"
+                                    aria-label="Close"
+                                >
+                                    <X size={20} strokeWidth={1.5} />
+                                </button>
+                            </div>
+
+                            {/* Scrollable content area */}
+                            <div className="overflow-y-auto flex-1 p-6 md:p-10 flex flex-col gap-8 overscroll-contain">
+
+                                {/* Background Glow */}
+                                <div
+                                    className="absolute top-0 right-0 w-64 h-64 blur-[100px] rounded-full opacity-10 pointer-events-none"
+                                    style={{ backgroundColor: selectedDiscipline.color }}
+                                />
+
+                                <p className="font-sans text-titanium/70 text-base md:text-lg leading-relaxed tracking-wide font-light">
+                                    {selectedDiscipline.fullDesc}
+                                </p>
 
                                 <div className="w-full h-[1px] bg-white/10" />
 
                                 {/* Comparative Section */}
                                 <div className="w-full">
-                                    <h4 className="font-display text-2xl text-titanium uppercase tracking-tighter mb-6">
+                                    <h4 className="font-display text-xl md:text-2xl text-titanium uppercase tracking-tighter mb-5">
                                         The <span className="text-gold italic">Advantage</span>
                                     </h4>
 
                                     <div className="w-full border border-white/10 rounded-xl overflow-hidden bg-black/50">
                                         <div className="grid grid-cols-3 border-b border-white/10 bg-white/5 py-3 px-4 md:px-6">
-                                            <div className="col-span-1 font-sans text-[10px] uppercase tracking-widest text-titanium/50">Metric</div>
-                                            <div className="col-span-1 font-sans text-[10px] uppercase tracking-widest text-titanium/50 text-center">Industry Standard</div>
-                                            <div className="col-span-1 font-sans text-[10px] uppercase tracking-widest text-gold text-center font-bold">The CJ Standard</div>
+                                            <div className="col-span-1 font-sans text-[9px] uppercase tracking-widest text-titanium/50">Metric</div>
+                                            <div className="col-span-1 font-sans text-[9px] uppercase tracking-widest text-titanium/50 text-center">Standard</div>
+                                            <div className="col-span-1 font-sans text-[9px] uppercase tracking-widest text-gold text-center font-bold">CJ Standard</div>
                                         </div>
 
                                         {selectedDiscipline.table.map((row, idx) => (
-                                            <div key={idx} className="grid grid-cols-3 border-b border-white/5 last:border-0 py-4 px-4 md:px-6 items-center hover:bg-white/5 transition-colors">
-                                                <div className="col-span-1 font-sans text-xs uppercase tracking-wider text-titanium/80">{row.label}</div>
-                                                <div className="col-span-1 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 font-sans text-[9px] sm:text-xs md:text-sm text-titanium/40">
-                                                    <Minus size={12} className="text-red-500/50 shrink-0" />
+                                            <div key={idx} className="grid grid-cols-3 border-b border-white/5 last:border-0 py-3 px-4 md:px-6 items-center hover:bg-white/5 transition-colors">
+                                                <div className="col-span-1 font-sans text-[10px] uppercase tracking-wider text-titanium/80 leading-tight">{row.label}</div>
+                                                <div className="col-span-1 flex flex-col items-center justify-center gap-1 font-sans text-[9px] md:text-xs text-titanium/40">
+                                                    <Minus size={10} className="text-red-500/50 shrink-0" />
                                                     <span className="text-center leading-tight">{row.standard}</span>
                                                 </div>
-                                                <div className="col-span-1 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 font-sans text-[9px] sm:text-xs md:text-sm text-titanium">
-                                                    <Check size={12} className="text-gold shrink-0" />
+                                                <div className="col-span-1 flex flex-col items-center justify-center gap-1 font-sans text-[9px] md:text-xs text-titanium">
+                                                    <Check size={10} className="text-gold shrink-0" />
                                                     <span className="font-bold text-center leading-tight">{row.cj}</span>
                                                 </div>
                                             </div>
@@ -222,12 +223,11 @@ export default function Disciplines() {
                                     </div>
                                 </div>
 
-                                <div className="mt-2 flex flex-col items-center justify-center gap-6">
-                                    <a href="#contact" onClick={() => setSelectedDiscipline(null)} className="group relative overflow-hidden inline-flex items-center justify-center px-10 py-5 bg-gold text-onyx font-sans text-sm uppercase tracking-widest font-bold hover:text-white shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all duration-500 rounded-lg">
+                                <div className="flex flex-col items-center justify-center gap-4 pb-2">
+                                    <a href="#contact" onClick={() => setSelectedDiscipline(null)} className="group relative overflow-hidden inline-flex items-center justify-center w-full md:w-auto px-10 py-4 bg-gold text-onyx font-sans text-sm uppercase tracking-widest font-bold hover:text-white shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-500 rounded-lg">
                                         <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Secure Your Spot</span>
                                         <div className="absolute inset-0 bg-onyx pointer-events-none translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
                                     </a>
-
                                     <p className="font-sans text-[9px] text-titanium/40 uppercase tracking-widest text-center">
                                         * Objective results demand objective science. We don't negotiate with mediocrity.
                                     </p>

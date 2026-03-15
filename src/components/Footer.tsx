@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Instagram } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 // Placeholder custom icons for WhatsApp/TikTok using minimal SVGs Since lucide doesn't have them all
 const WhatsAppIcon = () => (
@@ -13,12 +13,16 @@ const TikTokIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg>
 );
 
+const InstagramIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+);
+
 export default function Footer() {
     const contacts = [
         { name: "WhatsApp", icon: <WhatsAppIcon />, href: "https://wa.me/447760401994" },
-        { name: "Instagram", icon: <Instagram />, href: "https://www.instagram.com/_cj.harvey_/" },
+        { name: "Instagram", icon: <InstagramIcon />, href: "https://www.instagram.com/_cj.harvey_/" },
         { name: "TikTok", icon: <TikTokIcon />, href: "https://www.tiktok.com/@_cj_harvey?lang=es" },
-        { name: "Email", icon: <Mail />, href: "mailto:hello@cjharvey.com" },
+        { name: "Email", icon: <Mail />, href: "mailto:cjh1828@outlook.com" },
     ];
 
     return (
@@ -41,9 +45,29 @@ export default function Footer() {
                         </h2>
                         <div className="bg-white/5 border border-white/10 p-6 md:p-8 backdrop-blur-md relative overflow-hidden group">
                             <div className="absolute inset-0 bg-gold/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                            <p className="relative z-10 font-sans text-titanium/80 text-lg md:text-xl uppercase tracking-widest leading-relaxed">
+                            <p className="relative z-10 font-sans text-titanium/80 text-base md:text-xl uppercase tracking-widest leading-relaxed">
                                 In-person training in <span className="text-gold font-bold">Oxford, England</span> and global online coaching.
                             </p>
+                        </div>
+
+                        {/* Direct contact details — visible for noting down */}
+                        <div className="mt-5 flex flex-col gap-3">
+                            <a href="tel:+447760401994" className="flex items-center gap-3 group w-fit">
+                                <div className="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center bg-gold/5 group-hover:bg-gold/20 transition-colors duration-300 shrink-0">
+                                    <Phone size={12} className="text-gold" />
+                                </div>
+                                <span className="font-sans text-titanium/80 text-sm tracking-widest select-all group-hover:text-gold transition-colors duration-300">
+                                    +44 7760 401994
+                                </span>
+                            </a>
+                            <a href="mailto:cjh1828@outlook.com" className="flex items-center gap-3 group w-fit">
+                                <div className="w-8 h-8 rounded-full border border-gold/30 flex items-center justify-center bg-gold/5 group-hover:bg-gold/20 transition-colors duration-300 shrink-0">
+                                    <Mail size={12} className="text-gold" />
+                                </div>
+                                <span className="font-sans text-titanium/80 text-sm tracking-widest select-all group-hover:text-gold transition-colors duration-300">
+                                    cjh1828@outlook.com
+                                </span>
+                            </a>
                         </div>
                     </div>
 
@@ -57,7 +81,7 @@ export default function Footer() {
             </section>
 
             {/* Actual Footer - Solid Dark Background */}
-            <footer className="relative z-10 w-full bg-black/70 backdrop-blur-sm py-12 border-t border-white/5 text-titanium flex flex-col items-center justify-center overflow-hidden">
+            <footer className="relative z-10 w-full bg-black/70 backdrop-blur-sm py-8 md:py-12 border-t border-white/5 text-titanium flex flex-col items-center justify-center overflow-hidden">
                 {/* Bottom Links & Legal */}
                 <div className="relative z-20 w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
 

@@ -235,7 +235,7 @@ function MetricsChart() {
 
 export default function Process() {
     return (
-        <section id="process" className="relative z-10 w-full bg-onyx px-4 md:px-6 py-32 border-t border-white/5">
+        <section id="process" className="relative z-10 w-full bg-onyx px-4 md:px-6 py-16 md:py-32 border-t border-white/5">
             <div className="max-w-7xl mx-auto w-full">
 
                 {/* Section Header */}
