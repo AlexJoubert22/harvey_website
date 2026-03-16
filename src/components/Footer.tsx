@@ -20,7 +20,7 @@ const InstagramIcon = () => (
 export default function Footer() {
     const contacts = [
         { name: "WhatsApp", icon: <WhatsAppIcon />, href: "https://wa.me/447760401994" },
-        { name: "Instagram", icon: <InstagramIcon />, href: "https://www.instagram.com/_cj.harvey_/" },
+        { name: "Instagram", icon: <InstagramIcon />, href: "https://www.instagram.com/active_with_cj/" },
         { name: "TikTok", icon: <TikTokIcon />, href: "https://www.tiktok.com/@_cj_harvey?lang=es" },
         { name: "Email", icon: <Mail />, href: "mailto:cjh1828@outlook.com" },
     ];
@@ -86,13 +86,21 @@ export default function Footer() {
                 <div className="relative z-20 w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0">
 
                     {/* Copyright & Role (Left) */}
-                    <div className="flex flex-col items-center md:items-start gap-2 opacity-60">
-                        <span className="font-sans text-[10px] tracking-[0.2em] text-titanium uppercase font-bold">
-                            Elite Performance Coach
-                        </span>
-                        <p className="font-sans text-[9px] tracking-[0.2em] text-titanium uppercase">
-                            © 2026 CJ HARVEY. ALL RIGHTS RESERVED.
-                        </p>
+                    <div className="flex items-center gap-3">
+                        {/* Circular logo */}
+                        <img
+                            src="/logo.jpg"
+                            alt="Active With CJ"
+                            className="w-10 h-10 rounded-full object-cover border border-white/10 shrink-0"
+                        />
+                        <div className="flex flex-col items-start gap-1 opacity-60">
+                            <span className="font-sans text-[10px] tracking-[0.2em] text-titanium uppercase font-bold">
+                                Elite Performance Coach
+                            </span>
+                            <p className="font-sans text-[9px] tracking-[0.2em] text-titanium uppercase">
+                                © 2026 CJ HARVEY. ALL RIGHTS RESERVED.
+                            </p>
+                        </div>
                     </div>
 
                     {/* Navigation Links (Center) */}
